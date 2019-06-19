@@ -1,0 +1,30 @@
+#!/bin/sh
+#
+# Usage:
+#
+# RHEL8
+# 	# subscription-manager repos --enable=rhel-8-for-x86_64-baseos-rpms 
+# RHEL7
+#	# subscription-manager repos --enable=rhel-7-server-optional-rpms 
+# RHEL6
+#	# subscription-manager repos --enable=rhel-6-server-optional-rpms 
+# 
+# 1. Install rpm-cron, to generate rpmpkgs file.
+# 	# yum install rpm-cron
+# 2. Copy rpmpkgs-backup to /etc/cron.daily/
+# 	# cp rpmpkgs-backup /etc/cron.daily/
+# 3. Make /etc/cron.daily/rpmpkgs-backup executable
+# 	# chmod 755 /etc/cron.daily/rpmpkgs-backup
+#
+# Version: 1.00
+# Date: June 19, 2019
+# https://github.com/anilv4/rpmpkgs-backup/
+# Author: Anil Vettathu <avettath@redhat.com>
+
+BKP_DIR='/var/log/rpmpkgs-bkp'
+RPMPKGS_FILE='/var/log/rpmpkgs'
+DATE_FMT=`date +%F_%H-%M-%S`
+FILE_NAME="rpmpkgs_$DATE_FMT"
+
+[ ! -d "$BKP_DIR" ] && mkdir -p "$BKP_DIR"
+[ -f "$RPMPKGS_FILE" ] && cp "$RPMPKGS_FILE" "$BKP_DIR"/"$FILE_NAME"
