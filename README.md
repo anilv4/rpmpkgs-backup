@@ -11,7 +11,7 @@ https://access.redhat.com/solutions/23743
 
 **RHEL8**
 
-`#subscription-manager repos --enable=rhel-8-for-x86_64-baseos-rpms`
+`# subscription-manager repos --enable=rhel-8-for-x86_64-baseos-rpms`
 
 **RHEL7**
 
