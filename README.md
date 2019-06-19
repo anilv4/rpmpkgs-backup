@@ -1,5 +1,10 @@
 **rpmpkgs-backup** is a shell script to backup /var/log/rpmpkgs daily with the help of cron.
 
+The purpose of the rpmpkgs backup is to rebuild the rpmdb using the the following article from Red Hat, when all other rpmdb recovery method fails. An up to date package list is a must for the recovery to be successful.
+
+How to recover rpm database using /var/log/rpmpkgs
+https://access.redhat.com/solutions/23743
+
 ## Usage
 
 ### Enable the required repos in Red Hat Enterprise Linux
