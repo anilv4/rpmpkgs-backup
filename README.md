@@ -18,7 +18,7 @@
 
 1. Install rpm-cron, to generate rpmpkgs file.
   - `# yum install rpm-cron`
-2. Copy rpmpkgs-backup to /etc/cron.daily/
+2. Download rpmpkgs-backup and copy it to /etc/cron.daily/
   - `# cp rpmpkgs-backup /etc/cron.daily/`
 3. Make /etc/cron.daily/rpmpkgs-backup executable
   - `# chmod 755 /etc/cron.daily/rpmpkgs-backup`
