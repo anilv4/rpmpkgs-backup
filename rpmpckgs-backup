@@ -21,14 +21,16 @@
 # https://github.com/anilv4/rpmpkgs-backup/
 # Author: Anil Vettathu <avettath@redhat.com>
 
+# To make sure the script execute after daily rpm-cron
+DELAYED_START=90
+
+sleep $DELAYED_START
+# Everything should starts after DELAYED_START counter
+
 BKP_DIR='/var/log/rpmpkgs-bkp'
 RPMPKGS_FILE='/var/log/rpmpkgs'
 DATE_FMT=`date +%F_%H-%M-%S`
 FILE_NAME="rpmpkgs_$DATE_FMT"
 
-# To make sure the script execute after daily rpm-cron
-DELAYED_START=90
-
-sleep $DELAYED_START
 [ ! -d "$BKP_DIR" ] && mkdir -p "$BKP_DIR"
 [ -f "$RPMPKGS_FILE" ] && cp "$RPMPKGS_FILE" "$BKP_DIR"/"$FILE_NAME"
